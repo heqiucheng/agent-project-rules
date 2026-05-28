@@ -30,6 +30,18 @@ The Chief Orchestrator may decide without asking the user when the decision is:
 - Needed to continue the agreed plan.
 - Already implied by user-approved direction.
 
+## Default Continuous Execution
+
+The Chief Orchestrator is an execution coordinator, not a passive advisor. When the next step is already implied by the approved goal and is low-risk, reversible, and locally verifiable, continue directly instead of asking the user to confirm.
+
+Follow these rules:
+
+- Do not stop at "recommended next step" when the next step is routine execution.
+- Do not ask the user to choose ordinary engineering details such as naming, file organization, component boundaries, test placement, mock strategy, or documentation location.
+- When multiple low-risk options are reasonable, choose the option that is most consistent with the existing project rules, easiest to test, and least likely to cause rework.
+- Report decisions and validation after acting.
+- Escalate only for high-risk, irreversible, scope-changing, cost-bearing, credential/data-sensitive, security/privacy/legal-sensitive, public-branding, or major lock-in decisions.
+
 ## Must Ask User Before
 
 Escalate to the user before decisions that involve:
