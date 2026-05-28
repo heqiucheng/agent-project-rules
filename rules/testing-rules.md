@@ -1,0 +1,30 @@
+# Testing Rules
+
+## Hard Rules
+
+- A feature is not complete until relevant tests pass or test gaps are explicitly documented.
+- Cover normal, empty, invalid, unauthorized, duplicate, timeout, third-party failure, and rollback paths.
+- Bugs should add regression tests when practical.
+- AI features must test structured output validation and bad-output handling.
+- API integrations need mocks/fakes and local smoke tests.
+
+## Minimum Test Types
+
+```text
+Unit tests
+API tests
+Integration tests with mocks/fakes
+Regression tests for bug fixes
+Build/type/lint checks
+```
+
+## Completion Note
+
+Every completed task should state:
+
+```text
+Tests run
+Results
+Tests not run and why
+Residual risk
+```
