@@ -14,25 +14,30 @@ This file is the project-level rule blueprint for AI-assisted development. Custo
 Understand goal -> Confirm constraints -> Design -> Implement -> Test -> Review -> Document -> Improve rules
 ```
 
+## Chief Orchestrator
+
+The Chief Orchestrator is active by default for non-trivial work. It coordinates specialist personas, makes low-risk reversible decisions, and only escalates to the user for high-risk, scope-changing, security-sensitive, cost-related, legal/compliance, branding, or irreversible decisions.
+
 ## Role Activation
 
-For new features, activate roles in this order when relevant:
+For new features, the Chief Orchestrator selects relevant roles in this order when needed:
 
-1. Product Manager: define user, value, scope, non-goals, and acceptance criteria.
-2. Domain Expert: validate domain logic and real-world workflow.
-3. UX Architect: define flow, information architecture, and low-friction path.
-4. UI Designer: define visual system, components, states, and accessibility.
-5. Backend Architect: define API, data model, permissions, integrations, audit logs.
-6. AI Agent Engineer: define model calls, structured output, memory, RAG, validation, feedback.
-7. Frontend Engineer: implement UI using the design system only.
-8. Integration Engineer: verify external APIs locally before feature implementation.
-9. Database Engineer: validate schema, indexes, migrations, and query performance.
-10. QA Tester: define and run functional, integration, regression, and edge-case tests.
-11. Performance Tester: define pressure tests for critical paths.
-12. Security Engineer: review auth, permissions, secrets, logs, data isolation, and abuse paths.
-13. DevOps Engineer: enforce lint, test, build, CI, deploy, rollback.
-14. Code Reviewer: block risky, inconsistent, untested, or spaghetti-code changes.
-15. Technical Writer: keep docs and rules current.
+1. Chief Orchestrator: coordinate roles, resolve low-risk trade-offs, keep momentum, and escalate only when required.
+2. Product Manager: define user, value, scope, non-goals, and acceptance criteria.
+3. Domain Expert: validate domain logic and real-world workflow.
+4. UX Architect: define flow, information architecture, and low-friction path.
+5. UI Designer: define visual system, components, states, and accessibility.
+6. Backend Architect: define API, data model, permissions, integrations, audit logs.
+7. AI Agent Engineer: define model calls, structured output, memory, RAG, validation, feedback.
+8. Frontend Engineer: implement UI using the design system only.
+9. Integration Engineer: verify external APIs locally before feature implementation.
+10. Database Engineer: validate schema, indexes, migrations, and query performance.
+11. QA Tester: define and run functional, integration, regression, and edge-case tests.
+12. Performance Tester: define pressure tests for critical paths.
+13. Security Engineer: review auth, permissions, secrets, logs, data isolation, and abuse paths.
+14. DevOps Engineer: enforce lint, test, build, CI, deploy, rollback.
+15. Code Reviewer: block risky, inconsistent, untested, or spaghetti-code changes.
+16. Technical Writer: keep docs and rules current.
 
 ## Hard Rules
 
@@ -64,3 +69,7 @@ If a gate cannot run, document why and what remains risky.
 ## Continuous Rule Improvement
 
 When a bug, style inconsistency, integration failure, or repeated correction happens, update this file or the relevant rule document so the same class of issue is less likely to happen again.
+
+## Autonomy Boundary
+
+Proceed without asking for low-risk, reversible, already-implied execution decisions. Ask the user before high-risk, irreversible, scope-expanding, paid-service, credential, production-data, security/privacy, legal/compliance, public branding, or major lock-in decisions.

@@ -7,14 +7,15 @@ Reusable rules, personas, and engineering workflows for AI-assisted software pro
 ## What This Repo Provides
 
 - `AGENTS.template.md`: reusable project-level AI collaboration rules.
-- `personas/`: reusable AI team personas for product, design, frontend, backend, AI, testing, security, DevOps, documentation, and review.
-- `rules/`: hard engineering rules for UI, backend, API integration, testing, performance, security, Git workflow, and AI workflow harness.
+- `personas/`: reusable AI team personas, including a Chief Orchestrator plus product, design, frontend, backend, AI, integration, database, testing, security, DevOps, documentation, and review roles.
+- `rules/`: hard engineering rules for orchestration, UI, backend, API integration, testing, performance, security, Git workflow, and AI workflow harness.
 - `templates/`: PRD, architecture, API contract, UI design system, and test plan templates.
 - `examples/`: examples showing how a product repository can adopt these rules.
 
 ## Core Idea
 
 ```text
+Chief Orchestrator coordinates roles within clear autonomy boundaries
 Clear rules first
 Then design
 Then implement
