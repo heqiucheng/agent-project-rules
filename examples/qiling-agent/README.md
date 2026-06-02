@@ -9,6 +9,26 @@
 
 Product repositories should keep business-specific rules local while keeping reusable engineering rules aligned with this repository.
 
+Recommended install order for a repository like `qiling-agent`:
+
+```text
+1. copy AGENTS.template.md -> AGENTS.md
+2. enable Chief Orchestrator as the default controller
+3. copy only the personas needed for the current stage
+4. copy orchestration, backend, frontend, testing, documentation, and git workflow rules
+5. create docs/specs, docs/architecture, docs/design, docs/testing, docs/agents
+6. write PRD + architecture + API contract before real integrations
+7. run one real vertical slice through implement -> verify -> review -> push
+```
+
+For a repository that starts from zero, use:
+
+- [project-bootstrap-checklist.md](/d:/项目git/agent-project-rules/playbooks/project-bootstrap-checklist.md)
+
+For a repository that already exists, use:
+
+- [existing-project-adoption-checklist.md](/d:/项目git/agent-project-rules/playbooks/existing-project-adoption-checklist.md)
+
 Suggested reference in product README:
 
 ```text

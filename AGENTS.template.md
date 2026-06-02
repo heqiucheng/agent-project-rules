@@ -26,6 +26,19 @@ Default execution rule:
 - Report what was done, what was decided, risks, validation, and the next action being taken. Do not turn routine execution into a user decision.
 - Ask only when the decision is high-risk, irreversible, scope-expanding, cost-bearing, credential/data-sensitive, security/privacy/legal-sensitive, public-branding-related, or creates major long-term lock-in.
 
+Default phase report shape:
+
+```text
+Completed:
+Roles activated:
+Decision:
+Validation:
+Risk:
+Next:
+```
+
+`Next` should be the action being taken, not a routine "should I continue?" checkpoint.
+
 ## Role Activation
 
 For new features, the Chief Orchestrator selects relevant roles in this order when needed:
@@ -73,6 +86,20 @@ security-sensitive review
 ```
 
 If a gate cannot run, document why and what remains risky.
+
+## Project Bootstrap
+
+For new repositories, initialize the project using:
+
+```text
+playbooks/project-bootstrap-checklist.md
+```
+
+For existing repositories adopting these rules later, use:
+
+```text
+playbooks/existing-project-adoption-checklist.md
+```
 
 ## Continuous Rule Improvement
 
