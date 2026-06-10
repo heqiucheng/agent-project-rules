@@ -9,8 +9,11 @@ Turn a blank repository into a project that an AI coding agent can enter and run
 ## Phase 1: Create The Rule Entry
 
 1. Copy `AGENTS.template.md` into the new repository as `AGENTS.md`.
-2. Fill in project name, product direction, tech stack, required commands, and domain-specific hard rules.
+2. Fill in project name, product direction, tech stack, required commands, domain-specific hard rules, and prompt architecture expectations.
 3. Keep the Chief Orchestrator enabled by default unless the project truly needs a different control model.
+4. Keep prompt architecture enabled by default if the project will generate prompts, agent instructions, research requests, AI workflows, or reusable output templates.
+5. Add the coding-agent reliability rules when the project will use autonomous or semi-autonomous coding tools.
+6. Add the frontend/design enhancement layer when the project has pages, dashboards, commercial surfaces, learning flows, editors, games, or meaningful UI.
 
 Exit check:
 
@@ -20,7 +23,7 @@ The repo has one clear AI rule entry file: AGENTS.md
 
 ## Phase 2: Create The Minimum Docs Spine
 
-Create these folders before feature work starts:
+Create these folders and starter files before feature work starts:
 
 ```text
 docs/agents/
@@ -28,6 +31,8 @@ docs/specs/
 docs/architecture/
 docs/design/
 docs/testing/
+.agents/rules/
+DESIGN.md
 ```
 
 Copy only the personas and rules the project actually needs. Start lean, but include the orchestration entry first.
@@ -37,6 +42,7 @@ Recommended baseline:
 ```text
 docs/agents/chief-orchestrator.md
 docs/agents/product-manager.md
+docs/agents/prompt-architect.md
 docs/agents/frontend-engineer.md
 docs/agents/backend-architect.md
 docs/agents/qa-tester.md
@@ -49,9 +55,17 @@ Recommended baseline rules:
 docs/rules/orchestration-rules.md
 docs/rules/backend-engineering-rules.md
 docs/rules/frontend-style-rules.md
+docs/rules/frontend-taste-rules.md
+docs/rules/frontend-audit-rules.md
+docs/rules/design-md-rules.md
 docs/rules/testing-rules.md
 docs/rules/documentation-rules.md
 docs/rules/git-workflow-rules.md
+docs/rules/prompt-architecture-rules.md
+docs/rules/verification-truthfulness-rules.md
+docs/rules/agent-reliability-rules.md
+docs/rules/instruction-chain-rules.md
+docs/rules/untrusted-input-rules.md
 ```
 
 Exit check:
@@ -66,8 +80,9 @@ Before implementation, create the first version of:
 
 1. PRD
 2. architecture note
-3. API contract if frontend/backend or integration is involved
-4. test plan if the workflow has shared or risky behavior
+3. `DESIGN.md` or frontend brief if meaningful UI is involved
+4. API contract if frontend/backend or integration is involved
+5. test plan if the workflow has shared or risky behavior
 
 Use the templates in `templates/` as the starting point.
 
@@ -96,6 +111,15 @@ continue if next step is still low-risk
 
 Use `rules/orchestration-rules.md` plus the status and implementation templates in this repo.
 
+If the project uses coding agents, also install:
+
+```text
+rules/agent-reliability-rules.md
+rules/instruction-chain-rules.md
+rules/untrusted-input-rules.md
+templates/work-log-template.md
+```
+
 Exit check:
 
 ```text
@@ -119,6 +143,14 @@ Write them into `AGENTS.md` and optionally the project README.
 
 If a gate cannot run yet, write the current gap explicitly instead of pretending the gate exists.
 
+Add one startup audit note for:
+
+```text
+instruction chain
+runtime capability state
+scope lock / diff budget
+```
+
 Exit check:
 
 ```text
@@ -135,6 +167,11 @@ Examples:
 - destructive migration approval rules
 - UI design constraints
 - AI output safety boundaries
+- prompt structure and output contract rules
+- verification truthfulness and anti-fake-completion rules
+- instruction chain and directory-scoped rule rules
+- untrusted-input and prompt-injection handling rules
+- governance file protection and scope-lock rules
 - mandatory audit trail rules
 - external API verification requirements
 
@@ -166,6 +203,8 @@ Do not expand the system until one slice can complete cleanly.
 - Treating the orchestrator as a passive advisor instead of the default execution controller.
 - Writing quality gates as aspirations without runnable commands.
 - Leaving domain-specific constraints only in chat history.
+- Assuming a coding agent will follow rules that were never audited at startup.
+- Letting `.agents/rules/` and `AGENTS.md` drift apart.
 
 ## Recommended First Commit
 

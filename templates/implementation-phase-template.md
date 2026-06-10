@@ -2,6 +2,15 @@
 
 Use this template to keep work moving through a complete engineering loop instead of stopping at partial progress.
 
+## Phase 0: Startup Audit
+
+```text
+Instruction sources:
+Path-scoped rules:
+Runtime capability state:
+Governance files in scope:
+```
+
 ## Phase 1: Scope
 
 ```text
@@ -9,6 +18,7 @@ Goal:
 Primary user/workflow:
 Non-goals:
 Acceptance criteria:
+Diff budget:
 ```
 
 ## Phase 2: Design
@@ -27,6 +37,7 @@ Validation plan:
 Files to change:
 Why each area is touched:
 What is deliberately not changed:
+Scope expansion note:
 ```
 
 ## Phase 4: Verification
@@ -39,6 +50,7 @@ Unit tests:
 Integration tests:
 Build:
 Manual smoke check:
+Evidence artifacts:
 ```
 
 ## Phase 5: Review
@@ -54,10 +66,12 @@ Test gap:
 ## Phase 6: Closeout
 
 ```text
+Status:
 Docs updated:
 Rules updated:
 Commit:
 Push:
+Work log / handoff:
 Next default step:
 ```
 

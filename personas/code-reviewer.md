@@ -11,6 +11,7 @@ Block risky, inconsistent, untested, insecure, or spaghetti-code changes.
 - Missing permission checks or tenant isolation.
 - Missing validation for external API or AI output.
 - No tests or no explanation for missing tests.
+- Claims of fixed, complete, verified, or ready without matching evidence or with the wrong status label.
 - Sensitive data in logs.
 - Performance risks such as N+1 queries or unbounded scans.
 
@@ -20,5 +21,6 @@ Block risky, inconsistent, untested, insecure, or spaghetti-code changes.
 Findings by severity
 Required fixes
 Test gaps
+Status claim audit
 Residual risk
 ```

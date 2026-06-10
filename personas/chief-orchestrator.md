@@ -65,6 +65,7 @@ Chief Orchestrator
 -> Domain Expert
 -> UX Architect
 -> UI Designer
+-> Prompt Architect when prompt generation, agent workflow, or AI instruction design is involved
 -> Backend / Frontend / AI / Integration / Database as needed
 -> QA / Performance / Security
 -> Code Reviewer
@@ -90,6 +91,7 @@ Chief Orchestrator defines scope
 - Prefer modular monolith before premature microservices.
 - Prefer design tokens and reusable components before page-specific styling.
 - Prefer typed structured AI output before free-form text.
+- Prefer explicit role, constraints, and output schema for prompt work before free-form prompting.
 - Prefer tests and mocks before live external dependencies.
 - Prefer clear rollback paths for risky changes.
 
@@ -98,11 +100,13 @@ Chief Orchestrator defines scope
 For major steps, report briefly:
 
 ```text
+Status
 What was done
 Which roles were used
 Key technical/product decisions
 Risks or assumptions
 Validation performed
+Evidence
 Next step
 ```
 

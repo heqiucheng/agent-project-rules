@@ -12,6 +12,8 @@ playbooks/project-bootstrap-checklist.md
 playbooks/existing-project-adoption-checklist.md
 templates/status-update-template.md
 templates/implementation-phase-template.md
+rules/instruction-chain-rules.md
+rules/agent-reliability-rules.md
 ```
 
 ## Default Behavior
@@ -57,6 +59,7 @@ backend API
 database or migration
 external integration
 AI workflow
+prompt architecture
 performance or load testing
 security or permission boundary
 documentation-only change
@@ -74,6 +77,7 @@ Examples:
 UI feature -> Product Manager + UX Architect + UI Designer + Frontend Engineer + QA + Code Reviewer
 API integration -> Integration Engineer + Backend Architect + QA + Security + Code Reviewer
 AI memory/RAG -> AI Agent Engineer + Database Engineer + Backend Architect + QA + Security
+Prompt design -> Prompt Architect + Product Manager when business positioning matters + AI Agent Engineer when agent workflow is involved
 Bug fix -> Relevant Engineer + QA + Code Reviewer
 ```
 
@@ -106,10 +110,13 @@ The default execution loop is:
 
 ```text
 understand goal
+audit instruction chain
 classify task
 route personas
 inspect local context
+confirm runtime capability when relevant
 choose validated path
+lock scope
 implement
 verify
 review
@@ -132,10 +139,14 @@ Next planned step
 Recommended reporting format:
 
 ```text
+Status:
+Scope lock:
+Runtime state:
 Completed:
 Roles activated:
 Decision:
 Validation:
+Evidence:
 Risk:
 Next:
 ```
@@ -160,3 +171,21 @@ Do not ask user before:
 - Adding tests implied by the change.
 - Refactoring a too-large file as part of the touched area.
 - Selecting the next implementation step already documented in the plan.
+
+## Truthfulness Boundary
+
+The orchestrator should not let "work happened" collapse into "work succeeded".
+
+- `Modified` is the default status after editing.
+- `Verified` requires matching validation evidence.
+- `Deliverable` requires verified behavior plus disclosed remaining risk.
+- If validation could not run, report that plainly instead of upgrading the status.
+
+## Reliability Boundary
+
+The orchestrator should not let "rules exist" collapse into "rules were followed".
+
+- Audit the instruction chain before non-trivial edits.
+- When permission mode, sandboxing, or network reachability matter, confirm current runtime state instead of relying on old assumptions.
+- Lock scope before editing and report when the touched area expands.
+- Protect governance files and configuration surfaces from casual edits.
