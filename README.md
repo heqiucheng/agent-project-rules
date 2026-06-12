@@ -6,11 +6,11 @@ This repository is a reusable starter pack for downstream product repositories. 
 
 ## What This Repo Provides
 
-- `AGENTS.template.md`: reusable project-level AI collaboration rules, now including default prompt-architecture, frontend/design enhancement, and coding-agent reliability behavior.
+- `AGENTS.template.md`: reusable project-level AI collaboration rules, now including default prompt-architecture, frontend/design enhancement, coding-agent reliability, and Karpathy-inspired coding behavior.
 - `personas/`: reusable AI team personas, including a Chief Orchestrator plus product, design, frontend, backend, AI, integration, database, testing, security, DevOps, documentation, review, and prompt-architecture roles.
-- `rules/`: hard engineering rules for orchestration, UI, frontend taste, frontend audit, `DESIGN.md`, backend, API integration, testing, performance, security, Git workflow, AI workflow harness, prompt architecture, verification truthfulness, instruction chain control, untrusted-input handling, and coding-agent reliability.
+- `rules/`: hard engineering rules for orchestration, UI, frontend taste, frontend audit, `DESIGN.md`, backend, API integration, testing, performance, security, Git workflow, AI workflow harness, prompt architecture, verification truthfulness, instruction chain control, untrusted-input handling, coding-agent reliability, and Karpathy-inspired coding behavior.
 - `playbooks/`: project adoption and orchestration execution checklists.
-- `templates/`: PRD, architecture, API contract, UI design system, frontend brief, `DESIGN.md`, test plan, prompt-architecture templates, work-log templates, and cross-project bootstrap prompts.
+- `templates/`: PRD, architecture, API contract, UI design system, frontend brief, `DESIGN.md`, test plan, prompt-architecture templates, work-log templates, Karpathy adoption prompts, and cross-project bootstrap prompts.
 - `examples/`: examples showing how a product repository can adopt these rules.
 
 ## Core Idea
@@ -32,6 +32,8 @@ Prompt work should follow the same discipline. A rough idea is not enough. The s
 Execution truthfulness should follow the same discipline. Superficial edits are not the same as working behavior, and "done" is not the same as "verified".
 
 Coding-agent reliability should follow the same discipline. A rule file that merely exists is not the same as a rule chain that was actually audited and applied.
+
+Karpathy-style coding behavior should follow the same discipline. The agent should think before coding, keep solutions simple, make surgical changes, and define success criteria before claiming a task is done.
 
 Frontend work should follow the same discipline. A page that merely renders is not the same as a product experience that matches its audience, design language, responsive needs, interaction states, and verification evidence.
 
@@ -82,6 +84,30 @@ rules/instruction-chain-rules.md
 rules/untrusted-input-rules.md
 templates/work-log-template.md
 .agents/rules/README.md
+```
+
+## Karpathy Coding Behavior Layer
+
+Any downstream project that adopts this repo can use the Karpathy-inspired coding behavior layer as the default guardrail for implementation work.
+
+The default Karpathy layer should:
+
+- state assumptions before non-trivial edits
+- surface ambiguity instead of silently guessing
+- select the simplest viable implementation path
+- avoid speculative abstractions and unrelated cleanup
+- keep every changed line traceable to the user request, agreed scope, or validation
+- convert vague work into success criteria and evidence
+
+The core files for this layer are:
+
+```text
+AGENTS.template.md
+rules/karpathy-coding-rules.md
+rules/agent-reliability-rules.md
+rules/verification-truthfulness-rules.md
+templates/karpathy-guidelines-adoption-prompt.md
+templates/other-project-bootstrap-prompt.md
 ```
 
 ## Frontend Design Enhancement Layer
@@ -224,6 +250,7 @@ rules/design-md-rules.md
 rules/testing-rules.md
 rules/documentation-rules.md
 rules/git-workflow-rules.md
+rules/karpathy-coding-rules.md
 rules/prompt-architecture-rules.md
 rules/verification-truthfulness-rules.md
 rules/agent-reliability-rules.md
@@ -236,6 +263,7 @@ templates/frontend-brief-template.md
 templates/design-md-template.md
 templates/prompt-architecture-template.md
 templates/work-log-template.md
+templates/karpathy-guidelines-adoption-prompt.md
 templates/other-project-bootstrap-prompt.md
 ```
 

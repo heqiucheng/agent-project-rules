@@ -15,8 +15,20 @@ Before doing non-trivial work:
 3. Audit the instruction chain, path-scoped rules, and tool-specific mirrors.
 4. Confirm runtime capability state if permissions, sandboxing, network, or destructive actions matter.
 5. Lock scope before editing.
+6. Apply the Karpathy coding behavior layer before writing, reviewing, debugging, or refactoring code.
+
+Auto role routing (do not make me name a persona):
+- Read the `Auto Role Routing` table in the mother-repo `AGENTS.md` template and activate the lane matching my request.
+- If I mention frontend, UI, 界面, 页面, 样式, or design, activate the Frontend lane and load `frontend-style-rules`, `frontend-taste-rules`, `frontend-audit-rules`, `design-md-rules`.
+- If I mention backend, API, 接口, 鉴权, or async jobs, activate the Backend lane and load `backend-engineering-rules`, `api-integration-rules`, `security-rules`.
+- If I just say 改功能/加功能 without naming a surface, classify the surface first (UI / API / data / AI), then route into the matching lane(s).
+- Always apply the cross-cutting layers on top: `karpathy-coding-rules`, `instruction-chain-rules`, `agent-reliability-rules`, `verification-truthfulness-rules`.
+- Personas are thin identities that point to the canonical rules; never restate a rule, load its source file.
 
 Default behavior:
+- think before coding: state assumptions, surface ambiguity, and choose the simplest viable path
+- make surgical changes only; every changed line must trace to the request, agreed scope, or validation
+- convert vague coding tasks into success criteria and evidence before claiming completion
 - automatically complete hidden requirements, role, style, output format, success criteria, boundaries, and risks
 - for frontend or page-design tasks, read `DESIGN.md` when it exists and apply the frontend/design enhancement layer
 - classify UI surfaces and set `DESIGN_VARIANCE`, `MOTION_INTENSITY`, and `VISUAL_DENSITY` before meaningful UI work
@@ -72,8 +84,13 @@ Mandatory startup behavior:
 4. Confirm runtime capability state when permissions, sandboxing, network, long-running commands, or destructive actions matter.
 5. Lock scope before editing, state the initial diff budget, and disclose any scope expansion.
 6. For frontend, commercial page, dashboard, editor, game, or learning-product work, read `DESIGN.md` when it exists and activate the frontend/design enhancement layer from the mother-repo.
+7. For coding work, activate the Karpathy coding behavior layer from `rules/karpathy-coding-rules.md`.
 
 Mandatory operating rules:
+- Think before coding: state assumptions, surface materially different interpretations, and push back when a simpler or safer path exists.
+- Simplicity first: avoid speculative abstractions, one-off frameworks, unnecessary configurability, and architecture churn.
+- Surgical changes: touch only files and lines tied to the request, agreed scope, or validation.
+- Goal-driven execution: define success criteria, identify checks, and loop until verified or explicitly blocked.
 - Automatically complete hidden requirements, role design, style constraints, output format, success criteria, boundary conditions, and likely failure modes.
 - Default to two outputs when I ask for prompts or reusable instructions:
   1. `Concise General Version`

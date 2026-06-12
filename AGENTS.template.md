@@ -67,6 +67,26 @@ templates/work-log-template.md
 
 For cross-tool compatibility, keep `AGENTS.md` as the primary repository rule entry and use `.agents/rules/` as the shared path-scoped mirror when the toolchain supports it.
 
+## Karpathy Coding Behavior Layer
+
+All downstream repositories should apply the Karpathy coding behavior layer whenever an agent writes, reviews, debugs, or refactors code.
+
+Default coding behavior:
+
+- Think before coding: state important assumptions, surface ambiguity, and ask when the answer changes behavior, data, security, cost, or architecture.
+- Keep the implementation simple: solve the requested problem with the least code that fits the existing project.
+- Make surgical changes: touch only the files and lines required by the request, the agreed scope, or validation.
+- Drive work by goals: turn vague requests into success criteria, then verify before claiming completion.
+- Push back when the requested path is riskier, larger, or less direct than a simpler validated path.
+
+The canonical reference for this behavior should live in:
+
+```text
+rules/karpathy-coding-rules.md
+rules/agent-reliability-rules.md
+rules/verification-truthfulness-rules.md
+```
+
 ## Frontend Design Enhancement Layer
 
 All downstream repositories can use the frontend/design enhancement layer when a task touches page design, brand expression, commercial pages, learning products, dashboards, editors, games, UI polish, interaction quality, animation, or responsive behavior.
@@ -127,6 +147,37 @@ Next:
 
 `Next` should be the action being taken, not a routine "should I continue?" checkpoint.
 
+## Auto Role Routing
+
+Before editing, route by the strongest signal in the request. The user does not need to name a persona — mentioning the work type is enough. When several signals apply, activate each matching lane. Load only the canonical rules for the active lane(s); the cross-cutting layers below always apply on top.
+
+| Trigger signals (any language) | Persona(s) activated | Canonical rules to load | Status labels |
+|---|---|---|---|
+| frontend, UI, 界面, 页面, 样式, 布局, 组件, 设计, 视觉, 动效/动画, 响应式, redesign, 改样式/调界面 | Frontend Engineer (+ UI Designer & UX Architect for new surfaces or design-heavy work) | `rules/frontend-style-rules.md`, `rules/frontend-taste-rules.md`, `rules/frontend-audit-rules.md`, `rules/design-md-rules.md` | Modified / Visually inspected / Verified / Deliverable |
+| backend, API, 接口, 服务端, 路由, 鉴权/权限, 业务逻辑, 幂等, 事务, 异步任务/队列 | Backend Architect (+ Security Engineer for auth/permissions, + Integration Engineer for third-party) | `rules/backend-engineering-rules.md`, `rules/api-integration-rules.md`, `rules/security-rules.md` | Modified / Verified / Deliverable |
+| 数据库, schema, migration, 索引, 查询性能, SQL | Database Engineer (+ Backend Architect) | `rules/backend-engineering-rules.md`, `rules/performance-testing-rules.md` | Modified / Verified / Deliverable |
+| AI, agent, 模型, prompt, RAG, 向量, 结构化输出 | AI Agent Engineer, Prompt Architect | `rules/prompt-architecture-rules.md`, `rules/agent-reliability-rules.md`, `rules/verification-truthfulness-rules.md` | Modified / Verified / Deliverable |
+| 集成, 第三方, 对接, webhook, 外部 API | Integration Engineer (+ Backend Architect) | `rules/api-integration-rules.md`, `rules/untrusted-input-rules.md` | Modified / Verified / Deliverable |
+| 性能, 压测, 负载, 并发 | Performance Tester | `rules/performance-testing-rules.md` | Modified / Verified / Deliverable |
+| 安全, 漏洞, 越权, 权限审计, 数据泄露 | Security Engineer | `rules/security-rules.md`, `rules/untrusted-input-rules.md` | Modified / Verified / Deliverable |
+| 改功能/加功能/新功能/需求 (surface not stated) | Chief Orchestrator classifies the surface first (UI? API? data? AI?), then routes into the lanes above | `rules/orchestration-rules.md` + the matched lane's rules | per matched lane |
+
+Cross-cutting layers always apply on top of the matched lane:
+
+```text
+rules/karpathy-coding-rules.md          # every code task: assumptions, simplicity, surgical, goal-driven
+rules/instruction-chain-rules.md        # non-trivial edits: audit the rule chain first
+rules/agent-reliability-rules.md        # non-trivial edits: scope lock, runtime check, work log
+rules/verification-truthfulness-rules.md # status labels must match evidence
+```
+
+Routing notes:
+
+- A pure-UI request (`改个样式`, `调整页面`) activates only the frontend lane, not the full new-feature roster.
+- A pure-backend request (`改接口`, `加个 API`) activates only the backend lane.
+- A surface-spanning feature activates multiple lanes; the Chief Orchestrator sequences them per the roster below.
+- Personas are thin role identities. They point to the canonical rules above and never restate them, so there is a single source of truth per topic.
+
 ## Role Activation
 
 For new features, the Chief Orchestrator selects relevant roles in this order when needed:
@@ -158,6 +209,9 @@ For new features, the Chief Orchestrator selects relevant roles in this order wh
 - Do not present generic AI-looking UI as polished product design.
 - Do not add animation libraries or visual effects unless they support comprehension, conversion, feedback, or interaction quality.
 - Do not create features without acceptance criteria.
+- Do not start non-trivial code edits without stating assumptions, selecting the simplest viable path, and identifying a validation path.
+- Do not add speculative abstractions, configurability, or adjacent cleanup that cannot be traced to the user's request.
+- Do not silently choose between materially different interpretations of the task.
 - Do not start non-trivial edits before auditing the applicable instruction chain.
 - Do not call work complete without tests, or an explicit reason why tests could not be run.
 - Do not claim fixed, completed, successful, ready, or working without validation evidence that matches the claim.
@@ -214,6 +268,7 @@ logic-hole scan completed
 For all work, also validate:
 
 ```text
+Karpathy assumptions / ambiguity / simplicity check completed
 reported status matches evidence
 success claims match actual checks
 unrun or failed gates are disclosed

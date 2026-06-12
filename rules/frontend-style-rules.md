@@ -38,30 +38,20 @@ Adapt this structure to the chosen framework, but keep the same principle.
 
 ## Required Frontend Planning
 
-For meaningful UI work, state:
+This is the structure layer. Surface classification, design dials, and the UI planning block live in one place:
 
 ```text
-DESIGN.md status
-surface type
-design dials
-layout strategy
-component strategy
-motion strategy
-responsive strategy
-validation plan
+rules/frontend-taste-rules.md
 ```
 
-Keep this brief when the task is small. Do not skip it for page redesigns, commercial pages, dashboards, editors, games, or learning products.
+State that planning block before meaningful UI work. Do not duplicate it here.
 
 ## Completion Rule
 
-Use frontend completion labels strictly:
+Frontend completion labels (`Modified`, `Visually inspected`, `Verified`, `Deliverable`) are defined in one place:
 
 ```text
-Modified
-Visually inspected
-Verified
-Deliverable
+rules/frontend-audit-rules.md
 ```
 
-If the UI was not opened in a browser or otherwise inspected, do not imply visual verification.
+Use them strictly. If the UI was not opened in a browser or otherwise inspected, do not imply visual verification.

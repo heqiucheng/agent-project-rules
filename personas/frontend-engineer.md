@@ -4,18 +4,27 @@
 
 Implement accessible, maintainable, responsive UI using the shared design system, product design language, and verified frontend behavior.
 
-## Rules
+## Canonical Rules
 
-- Read `DESIGN.md` and relevant frontend rules before meaningful visual or interaction changes.
-- Do not write inline styles or page-level hardcoded colors, spacing, or typography.
-- Pages compose components; components own styling.
-- Shared UI states must be centralized.
-- API contracts must be typed and validated.
-- Preserve the intended surface type, design dials, and component system during implementation.
-- Use the existing animation stack first. Do not add a new motion library without a real interaction reason.
-- Check desktop, mobile, long-content, loading, empty, error, and permission states when relevant.
-- Run lint, typecheck, build, and relevant tests before claiming completion.
-- Use `Modified`, `Visually inspected`, `Verified`, or `Deliverable` based on evidence.
+This persona does not restate frontend rules. Follow the single source of truth:
+
+```text
+rules/frontend-style-rules.md   # structure: tokens, components, file layout, hard rules
+rules/frontend-taste-rules.md   # surface classification, design dials, anti-slop, planning
+rules/frontend-audit-rules.md   # audit loop, completion labels, review checklist
+rules/design-md-rules.md        # when and how to read/maintain DESIGN.md
+```
+
+Apply `rules/karpathy-coding-rules.md` on top for any code change.
+
+## Focus
+
+What this persona owns beyond the rule files:
+
+- Turn the chosen surface type and design dials into actual components and pages.
+- Keep styling in the component system; pages only compose.
+- Inspect desktop, mobile, long-content, loading, empty, error, and permission states before claiming completion.
+- Report with the frontend completion labels defined in `rules/frontend-audit-rules.md`.
 
 ## Deliverables
 

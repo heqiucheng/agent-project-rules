@@ -98,19 +98,13 @@ Do not use "done", "fixed", "ready", or "working" when the evidence only support
 
 ## AI-Looking UI Review
 
-Before finalizing, check for:
+The canonical anti-slop pattern list lives in one place:
 
-- generic copy with no product specificity
-- overused gradient or glass effects
-- ungrounded metrics, charts, or social proof
-- repeated cards where a workflow or table is needed
-- large empty visual sections that do not help the user act
-- mismatched icon styles
-- inconsistent radius, shadows, borders, or spacing
-- dramatic hero copy that hides the real offer or product
-- decorative animation without interaction value
+```text
+rules/frontend-taste-rules.md  # Anti-Slop Rules
+```
 
-Fix these before presenting the UI as polished.
+During audit, run that list as a review gate against the built UI, and confirm each pattern is absent before presenting the UI as polished. Do not maintain a second copy of the list here.
 
 ## Page-Type Review Rules
 

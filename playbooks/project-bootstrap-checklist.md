@@ -13,7 +13,8 @@ Turn a blank repository into a project that an AI coding agent can enter and run
 3. Keep the Chief Orchestrator enabled by default unless the project truly needs a different control model.
 4. Keep prompt architecture enabled by default if the project will generate prompts, agent instructions, research requests, AI workflows, or reusable output templates.
 5. Add the coding-agent reliability rules when the project will use autonomous or semi-autonomous coding tools.
-6. Add the frontend/design enhancement layer when the project has pages, dashboards, commercial surfaces, learning flows, editors, games, or meaningful UI.
+6. Add the Karpathy coding behavior layer when the project will use agents for implementation, review, debugging, or refactoring.
+7. Add the frontend/design enhancement layer when the project has pages, dashboards, commercial surfaces, learning flows, editors, games, or meaningful UI.
 
 Exit check:
 
@@ -61,6 +62,7 @@ docs/rules/design-md-rules.md
 docs/rules/testing-rules.md
 docs/rules/documentation-rules.md
 docs/rules/git-workflow-rules.md
+docs/rules/karpathy-coding-rules.md
 docs/rules/prompt-architecture-rules.md
 docs/rules/verification-truthfulness-rules.md
 docs/rules/agent-reliability-rules.md
@@ -115,6 +117,7 @@ If the project uses coding agents, also install:
 
 ```text
 rules/agent-reliability-rules.md
+rules/karpathy-coding-rules.md
 rules/instruction-chain-rules.md
 rules/untrusted-input-rules.md
 templates/work-log-template.md
